@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Registration app</string>
+    <string name="welcome_to_our_application_enjoy">Welcome to our application,Enjoy!</string>
+    <string name="sign_up">Sign up</string>
+    <string name="sign_in">Sign in</string>
+    <string name="get_registered">GET REGISTERED!</string>
+</resources>
