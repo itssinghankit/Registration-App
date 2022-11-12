@@ -4,4 +4,13 @@
     <string name="sign_up">Sign up</string>
     <string name="sign_in">Sign in</string>
     <string name="get_registered">GET REGISTERED!</string>
+    <string name="next" />
+
+    <string-array name="branch">
+        <item>CSE</item>
+        <item>IT</item>
+        <item>ECE</item>
+        <item>CE</item>
+        <item>ME</item>
+    </string-array>
 </resources>
