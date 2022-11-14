@@ -80,7 +80,7 @@ class signup : AppCompatActivity() {
     }
 
     private fun emailRegex(email:String):Boolean{
-        val pattern="[a-zA-Z._-]+@akgec\\.ac\\.in".toRegex()
+        val pattern="[a-zA-Z0-9._-]+@akgec\\.ac\\.in".toRegex()
         return pattern.matches(email)
     }
 }

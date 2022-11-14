@@ -66,7 +66,7 @@
             />
 
         <EditText
-            android:id="@+id/signupPassword"
+            android:id="@+id/signinpassword"
             android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Forget Password?"
-            android:layout_below="@id/signupPassword"
+            android:layout_below="@id/signinpassword"
             android:textColor="#F89277"
             android:gravity="right"
             android:textSize="18sp"

@@ -30,6 +30,8 @@ class otpverification : AppCompatActivity() {
         OTP=intent.getStringExtra("OTP").toString()
         auth=FirebaseAuth.getInstance()
 
+        println("meow meow $mobile")
+
         val inputotp=findViewById<EditText>(R.id.otp)
         val verify=findViewById<Button>(R.id.verify)
 verify.setOnClickListener {

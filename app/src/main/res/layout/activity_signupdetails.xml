@@ -25,7 +25,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:gravity="center"
@@ -117,16 +116,24 @@
             android:layout_marginTop="30dp"
             android:layout_below="@id/branch"/>
 
-        <EditText
+        <Spinner
             android:id="@+id/year"
-            android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/yearText"
             android:backgroundTint="@color/white"
-            android:drawableLeft="@drawable/ic_baseline_date_range_24"
-            android:drawablePadding="20dp"
-            android:maxLines="1" />
+            style="@style/Widget.AppCompat.Spinner.Underlined"/>
+
+<!--        <EditText-->
+<!--            android:id="@+id/year"-->
+<!--            android:inputType="number"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/yearText"-->
+<!--            android:backgroundTint="@color/white"-->
+<!--            android:drawableLeft="@drawable/ic_baseline_date_range_24"-->
+<!--            android:drawablePadding="20dp"-->
+<!--            android:maxLines="1" />-->
 
         <TextView
             android:id="@+id/GenderText"
