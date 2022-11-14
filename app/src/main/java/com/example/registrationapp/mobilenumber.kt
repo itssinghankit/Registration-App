@@ -17,6 +17,9 @@ class mobilenumber : AppCompatActivity() {
     private lateinit var send:Button
     private lateinit var auth:FirebaseAuth
     private lateinit var number:String
+    private lateinit var email:String
+    private lateinit var password:String
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,10 +35,10 @@ class mobilenumber : AppCompatActivity() {
             if(number.isNotEmpty()){
                 if(number.length==10){
                     number="+91$number"
-println(number)
+
                     val options = PhoneAuthOptions.newBuilder(auth)
                         .setPhoneNumber(number)       // Phone number to verify
-                        .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
+                        .setTimeout(10L, TimeUnit.SECONDS) // Timeout and unit
                         .setActivity(this)                 // Activity (for callback binding)
                         .setCallbacks(callbacks)          // OnVerificationStateChangedCallbacks
                         .build()
@@ -112,10 +115,16 @@ println(number)
             // by combining the code with a verification ID.
             // Save verification ID and resending token so we can use them later
 
+            email=intent.getStringExtra("email").toString()
+            password=intent.getStringExtra("password").toString()
+
+            println(token)
             val intent=Intent(this@mobilenumber,otpverification::class.java)
             intent.putExtra("OTP",verificationId)
             intent.putExtra("resendToken",token)
             intent.putExtra("phonenumber",number)
+            intent.putExtra("email",email)
+            intent.putExtra("password",password)
             startActivity(intent)
 
         }

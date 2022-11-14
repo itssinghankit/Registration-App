@@ -59,6 +59,8 @@ class signup : AppCompatActivity() {
                     cPassError.setText("")
                         if(cPassFlag==true&&passFlag==true&&emailFlag){
                             val intent=Intent(this,mobilenumber::class.java)
+                            intent.putExtra("email",email.text.toString())
+                            intent.putExtra("password",pass.text.toString())
                             startActivity(intent)
                             finish()
                         }

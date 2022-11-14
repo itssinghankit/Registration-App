@@ -3,32 +3,59 @@ package com.example.registrationapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
+import android.view.View
+import android.widget.*
 import com.example.registrationapp.databinding.ActivitySignupBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class signupdetails : AppCompatActivity() {
-
+    private lateinit var mobile:String
     private lateinit var binding: ActivitySignupBinding
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var email:String
+    private lateinit var password:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signupdetails)
 
+        mobile=intent.getStringExtra("phonenumber").toString()
+        email=intent.getStringExtra("email").toString()
+        password=intent.getStringExtra("password").toString()
+
+        val name=findViewById<EditText>(R.id.signupName)
         val branch=findViewById<Spinner>(R.id.branch)
-        val signup=findViewById<Button>(R.id.done)
+        val year=findViewById<EditText>(R.id.year)
+        val gender=findViewById<RadioGroup>(R.id.genderRadio)
+        val done=findViewById<Button>(R.id.done)
+
+
+        var detailName:String
+        var detailYear:String
+        var detailBranch:String
+        var detailGender:String
 
         ArrayAdapter.createFromResource(this,R.array.branch,android.R.layout.simple_spinner_item).also{
             adapter->adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             branch.adapter=adapter
         }
 
-        signup.setOnClickListener{
-            val intent=Intent(this,otpverification::class.java)
-            startActivity(intent)
+                                        //AFTER BRANCH IS SELECTED
+        branch.onItemSelectedListener= object:AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                detailBranch=p0?.getItemAtPosition(p2).toString()
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                Toast.makeText(this@signupdetails, "Select a Branch", Toast.LENGTH_SHORT).show()
+            }
+
+        }
+
+        done.setOnClickListener{
+             detailName=name.text.toString()
+             detailYear=year.text.toString()
+
         }
 
         /*******************************/

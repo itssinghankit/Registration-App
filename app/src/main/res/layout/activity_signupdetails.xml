@@ -13,22 +13,24 @@
         android:src="@drawable/login1"
         android:scaleType="centerCrop"/>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:background="@drawable/transparblackbg">
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_margin="10dp"-->
+<!--        android:background="@drawable/transparblackbg">-->
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:gravity="center">
+        android:gravity="center"
+        android:background="@drawable/transparblackbg"
+        android:layout_margin="10dp">
 
     <TextView
         android:id="@+id/Details"
@@ -63,27 +65,27 @@
             android:drawablePadding="20dp"
             android:maxLines="1" />
 
-        <TextView
-            android:id="@+id/mobileText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mobile no"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="30dp"
-            android:layout_below="@id/signupName"/>
+<!--        <TextView-->
+<!--            android:id="@+id/mobileText"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Mobile no"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="20sp"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:layout_below="@id/signupName"/>-->
 
-        <EditText
-            android:id="@+id/signupMobile"
-            android:inputType="number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/mobileText"
-            android:backgroundTint="@color/white"
-            android:drawableLeft="@drawable/ic_baseline_mobile_friendly_24"
-            android:drawablePadding="20dp"
-            android:maxLines="1" />
+<!--        <EditText-->
+<!--            android:id="@+id/signupMobile"-->
+<!--            android:inputType="number"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/mobileText"-->
+<!--            android:backgroundTint="@color/white"-->
+<!--            android:drawableLeft="@drawable/ic_baseline_mobile_friendly_24"-->
+<!--            android:drawablePadding="20dp"-->
+<!--            android:maxLines="1" />-->
 
         <TextView
             android:id="@+id/branchText"
@@ -94,7 +96,7 @@
             android:textSize="20sp"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="30dp"
-            android:layout_below="@id/signupMobile"/>
+            android:layout_below="@id/signupName"/>
 
         <Spinner
             android:id="@+id/branch"
@@ -188,9 +190,6 @@
             android:textColor="@color/white"
             android:textSize="18sp" />
 
-
-
-
     </RelativeLayout>
-</ScrollView>
+<!--</ScrollView>-->
 </androidx.constraintlayout.widget.ConstraintLayout>
