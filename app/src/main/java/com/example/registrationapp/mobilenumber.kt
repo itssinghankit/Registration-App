@@ -3,8 +3,10 @@ package com.example.registrationapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.Toast
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
@@ -19,13 +21,13 @@ class mobilenumber : AppCompatActivity() {
     private lateinit var number:String
     private lateinit var email:String
     private lateinit var password:String
-
-
+    private lateinit var progressBar:ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mobilenumber)
 
+        progressBar=findViewById(R.id.progressbar)
         mobile=findViewById(R.id.mobileno)
         send=findViewById(R.id.sendotp)
         auth=FirebaseAuth.getInstance()
@@ -36,9 +38,12 @@ class mobilenumber : AppCompatActivity() {
                 if(number.length==10){
                     number="+91$number"
 
+                    progressBar.visibility= View.VISIBLE
+                    send.visibility=View.INVISIBLE
+
                     val options = PhoneAuthOptions.newBuilder(auth)
                         .setPhoneNumber(number)       // Phone number to verify
-                        .setTimeout(10L, TimeUnit.SECONDS) // Timeout and unit
+                        .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
                         .setActivity(this)                 // Activity (for callback binding)
                         .setCallbacks(callbacks)          // OnVerificationStateChangedCallbacks
                         .build()
@@ -50,15 +55,7 @@ class mobilenumber : AppCompatActivity() {
             }else{
                 Toast.makeText(this, "please enter a number", Toast.LENGTH_SHORT).show()
             }
-
         }
-
-//        val button=findViewById<Button>(R.id.sendotp)
-//
-//        button.setOnClickListener{
-//            val intent=Intent(this,otpverification::class.java)
-//            startActivity(intent)
-//        }
     }
 
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
@@ -66,7 +63,6 @@ class mobilenumber : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-
                 } else {
                     // Sign in failed, display a message and update the UI
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
@@ -93,14 +89,15 @@ class mobilenumber : AppCompatActivity() {
         override fun onVerificationFailed(e: FirebaseException) {
             // This callback is invoked in an invalid request for verification is made,
             // for instance if the the phone number format is not valid.
-
+            progressBar.visibility= View.INVISIBLE
+            send.visibility=View.VISIBLE
 
             if (e is FirebaseAuthInvalidCredentialsException) {
                 // Invalid request
- /**/               Toast.makeText(this@mobilenumber, "wrong number", Toast.LENGTH_SHORT).show()
+ /**/               Toast.makeText(this@mobilenumber, "Wrong Number", Toast.LENGTH_SHORT).show()
             } else if (e is FirebaseTooManyRequestsException) {
                 // The SMS quota for the project has been exceeded
-                Toast.makeText(this@mobilenumber, "problem from backend", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@mobilenumber, "Problem from Backend", Toast.LENGTH_SHORT).show()
             }
 
             // Show a message and update the UI
@@ -125,6 +122,7 @@ class mobilenumber : AppCompatActivity() {
             intent.putExtra("phonenumber",number)
             intent.putExtra("email",email)
             intent.putExtra("password",password)
+            intent.putExtra("resendToken",token)
             startActivity(intent)
 
         }

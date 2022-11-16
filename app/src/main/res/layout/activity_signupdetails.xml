@@ -13,12 +13,6 @@
         android:src="@drawable/login1"
         android:scaleType="centerCrop"/>
 
-<!--    <ScrollView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_margin="10dp"-->
-<!--        android:background="@drawable/transparblackbg">-->
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,28 +58,6 @@
             android:drawablePadding="20dp"
             android:maxLines="1" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/mobileText"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Mobile no"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textSize="20sp"-->
-<!--            android:layout_marginBottom="10dp"-->
-<!--            android:layout_marginTop="30dp"-->
-<!--            android:layout_below="@id/signupName"/>-->
-
-<!--        <EditText-->
-<!--            android:id="@+id/signupMobile"-->
-<!--            android:inputType="number"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_below="@id/mobileText"-->
-<!--            android:backgroundTint="@color/white"-->
-<!--            android:drawableLeft="@drawable/ic_baseline_mobile_friendly_24"-->
-<!--            android:drawablePadding="20dp"-->
-<!--            android:maxLines="1" />-->
-
         <TextView
             android:id="@+id/branchText"
             android:layout_width="wrap_content"
@@ -124,17 +96,6 @@
             android:backgroundTint="@color/white"
             style="@style/Widget.AppCompat.Spinner.Underlined"/>
 
-<!--        <EditText-->
-<!--            android:id="@+id/year"-->
-<!--            android:inputType="number"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_below="@id/yearText"-->
-<!--            android:backgroundTint="@color/white"-->
-<!--            android:drawableLeft="@drawable/ic_baseline_date_range_24"-->
-<!--            android:drawablePadding="20dp"-->
-<!--            android:maxLines="1" />-->
-
         <TextView
             android:id="@+id/GenderText"
             android:layout_width="wrap_content"
@@ -151,9 +112,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/GenderText"
-            android:orientation="horizontal"
-           >
-
+            android:orientation="horizontal">
             <RadioButton
                 android:id="@+id/male"
                 android:layout_width="wrap_content"
@@ -169,8 +128,7 @@
                 android:text="Female"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                android:paddingEnd="20dp"
-                />
+                android:paddingEnd="20dp" />
             <RadioButton
                 android:id="@+id/other"
                 android:layout_width="wrap_content"
@@ -179,8 +137,6 @@
                 android:textColor="@color/white"
                 android:textSize="20sp"/>
         </RadioGroup>
-
-
 
         <Button
             android:id="@+id/done"
@@ -198,5 +154,4 @@
             android:textSize="18sp" />
 
     </RelativeLayout>
-<!--</ScrollView>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

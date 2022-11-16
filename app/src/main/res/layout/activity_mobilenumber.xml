@@ -105,6 +105,14 @@
             android:textColor="@color/white"
             android:textSize="18sp" />
 
-    </RelativeLayout>
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mobileno"
+            android:layout_marginTop="131dp"
+            android:indeterminateTint="@color/orangebrown"
+            android:visibility="invisible"/>
 
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

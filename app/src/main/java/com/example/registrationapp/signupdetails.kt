@@ -13,7 +13,6 @@ import com.google.firebase.database.FirebaseDatabase
 
 class signupdetails : AppCompatActivity() {
     private lateinit var detailMobile:String
-    private lateinit var binding: ActivitySignupBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var detailEmail:String
     private lateinit var detailPassword:String
@@ -88,7 +87,16 @@ class signupdetails : AppCompatActivity() {
 
                     database=FirebaseDatabase.getInstance().getReference("Users")
                     val UserObject=User(detailName,detailGender,detailYear,detailBranch,detailMobile,detailEmail)
-                    database.child(detailMobile).setValue(UserObject).addOnCompleteListener {
+                    var databaseEmail=""
+                    var i=0
+                                            //this detailEmail will give the string before @symbol in @akgec.ac.in
+                    while(detailEmail[i]!='@')
+                    {
+                        databaseEmail=databaseEmail+detailEmail[i]
+                        i++
+                    }
+
+                    database.child(databaseEmail).setValue(UserObject).addOnCompleteListener {
                         if(it.isSuccessful)
                             Toast.makeText(this, "details uploaded", Toast.LENGTH_SHORT).show()
                         else
@@ -103,35 +111,6 @@ class signupdetails : AppCompatActivity() {
                 }
             }
         }
-
-        /*******************************/
-//        binding=ActivitySignupBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
-//
-//        firebaseAuth = FirebaseAuth.getInstance()
-//
-//        binding.signupNext.setOnClickListener{
-//            var email =binding.signupEmail.text.toString()
-//            val pass = binding.password.text.toString()
-//
-//
-//            if (email.isNotEmpty()&& pass.isNotEmpty())
-//            {
-//                firebaseAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener{
-//                    if(it.isSuccessful){
-//                        val intent=Intent(this,login::class.java)
-//                        startActivity(intent)
-//                    }
-//                    else{
-//                        Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
-//                    }
-//                }
-//            }
-//            else{
-//                Toast.makeText(this, "cannot be emptyaaaaaaaaaaa", Toast.LENGTH_SHORT).show()
-//            }
-//        }
-        /********************************/
 
     }
 }

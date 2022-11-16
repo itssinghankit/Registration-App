@@ -11,6 +11,7 @@
         android:layout_height="match_parent"
         android:src="@drawable/login1"
         android:scaleType="centerCrop"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -85,8 +86,7 @@
             android:layout_below="@id/signinpassword"
             android:textColor="#F89277"
             android:gravity="right"
-            android:textSize="18sp"
-            />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/loginsignin"
@@ -104,6 +104,4 @@
             android:textSize="18sp" />
 
     </RelativeLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

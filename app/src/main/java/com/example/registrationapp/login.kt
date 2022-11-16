@@ -24,15 +24,16 @@ class login : AppCompatActivity() {
 
                                   //AFTER CLICKING THE LOGIN BUTTON
         login.setOnClickListener {
-            if (email.text.toString().isNotEmpty() && password.text.toString()
-                    .isNotEmpty()
-            ) {
+            if (email.text.toString().isNotEmpty() && password.text.toString().isNotEmpty())
+            {
                 val email = email.text.toString()
                 val pass = password.text.toString()
 
-                firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
+                firebaseAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener {
                     if (it.isSuccessful) {
                        val intent=Intent(this,landingpage::class.java)
+                        intent.putExtra("email",email)
+                        intent.putExtra("password",pass)
                         startActivity(intent)
                     } else {
                         Toast.makeText(this, "check internet connection", Toast.LENGTH_SHORT).show()
@@ -42,10 +43,5 @@ class login : AppCompatActivity() {
                 Toast.makeText(this, "cant be empty", Toast.LENGTH_SHORT).show()
             }
         }
-
-
     }
-
-
-
 }
