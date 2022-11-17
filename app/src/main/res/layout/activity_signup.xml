@@ -86,7 +86,8 @@
             android:backgroundTint="@color/white"
             android:drawableLeft="@drawable/ic_baseline_info_24"
             android:drawablePadding="20dp"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            app:passwordToggleEnabled="true"/>
 
         <TextView
             android:id="@+id/signupPasswordError"
@@ -117,7 +118,8 @@
             android:backgroundTint="@color/white"
             android:drawableLeft="@drawable/ic_baseline_info_24"
             android:drawablePadding="20dp"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            app:passwordToggleEnabled="true"/>
 
         <TextView
             android:id="@+id/signupCpasswordError"
