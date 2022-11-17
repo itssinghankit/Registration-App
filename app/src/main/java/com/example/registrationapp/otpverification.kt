@@ -16,15 +16,12 @@ import java.util.concurrent.TimeUnit
 
 class otpverification : AppCompatActivity() {
 
-
     private lateinit var mobile:String
     private lateinit var auth:FirebaseAuth
     private lateinit var OTP:String
     private lateinit var email:String
     private lateinit var password:String
     private lateinit var resendToken:PhoneAuthProvider.ForceResendingToken
-    //        val  token: PhoneAuthProvider.ForceResendingToken=getpar
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,6 +77,7 @@ verify.setOnClickListener {
                     // Sign in failed, display a message and update the UI
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
                         // The verification code entered was invalid
+                        Toast.makeText(this, "Wrong OTP", Toast.LENGTH_SHORT).show()
                     }
                     // Update UI
                 }
@@ -131,6 +129,7 @@ verify.setOnClickListener {
             // by combining the code with a verification ID.
             // Save verification ID and resending token so we can use them later
             Toast.makeText(this@otpverification, "Code is been Sent", Toast.LENGTH_SHORT).show()
+            OTP=verificationId
         }
     }
 }

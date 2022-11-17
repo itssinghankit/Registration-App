@@ -32,7 +32,6 @@ class signupdetails : AppCompatActivity() {
         val gender=findViewById<RadioGroup>(R.id.genderRadio)
         val done=findViewById<Button>(R.id.done)
 
-
         var detailName:String
         var detailYear:String?=null
         var detailBranch:String?=null
@@ -67,7 +66,7 @@ class signupdetails : AppCompatActivity() {
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO("Not yet implemented")
+
             }
 
         }
@@ -79,36 +78,51 @@ class signupdetails : AppCompatActivity() {
         }
                                         //AFTER DONE BUTTON IS CLICKED
         done.setOnClickListener{
-             detailName=name.text.toString()
+            detailName=name.text.toString()
+            if(detailName.isNotEmpty()&& detailGender!!.isNotEmpty()) {
 
-            firebaseAuth = FirebaseAuth.getInstance()
-            firebaseAuth.createUserWithEmailAndPassword(detailEmail, detailPassword).addOnCompleteListener {
-                if(it.isSuccessful){
+                firebaseAuth = FirebaseAuth.getInstance()
+                firebaseAuth.createUserWithEmailAndPassword(detailEmail, detailPassword)
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
 
-                    database=FirebaseDatabase.getInstance().getReference("Users")
-                    val UserObject=User(detailName,detailGender,detailYear,detailBranch,detailMobile,detailEmail)
-                    var databaseEmail=""
-                    var i=0
-                                            //this detailEmail will give the string before @symbol in @akgec.ac.in
-                    while(detailEmail[i]!='@')
-                    {
-                        databaseEmail=databaseEmail+detailEmail[i]
-                        i++
+                            database = FirebaseDatabase.getInstance().getReference("Users")
+                            val UserObject = User(
+                                detailName,
+                                detailGender,
+                                detailYear,
+                                detailBranch,
+                                detailMobile,
+                                detailEmail
+                            )
+                            var databaseEmail = ""
+                            var i = 0
+                            //this detailEmail will give the string before @symbol in @akgec.ac.in
+                            while (detailEmail[i] != '@') {
+                                databaseEmail = databaseEmail + detailEmail[i]
+                                i++
+                            }
+
+                            database.child(databaseEmail).setValue(UserObject)
+                                .addOnCompleteListener {
+                                    if (it.isSuccessful)
+                                        Toast.makeText(this, "details uploaded", Toast.LENGTH_SHORT)
+                                            .show()
+                                    else
+                                        Toast.makeText(this, "upload failed", Toast.LENGTH_SHORT)
+                                            .show()
+                                }
+
+                            val intent = Intent(this, login::class.java)
+                            startActivity(intent)
+                            finish()
+                        } else {
+                            Toast.makeText(this, "User already Exists", Toast.LENGTH_SHORT).show()
+                        }
                     }
-
-                    database.child(databaseEmail).setValue(UserObject).addOnCompleteListener {
-                        if(it.isSuccessful)
-                            Toast.makeText(this, "details uploaded", Toast.LENGTH_SHORT).show()
-                        else
-                         Toast.makeText(this, "upload failed", Toast.LENGTH_SHORT).show()
-                    }
-
-                    val intent=Intent(this,login::class.java)
-                    startActivity(intent)
-                    finish()
-                }else{
-                    Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
-                }
+            }else{
+                Toast.makeText(this, "Fields cannot be Empty" +
+                        "", Toast.LENGTH_SHORT).show()
             }
         }
 

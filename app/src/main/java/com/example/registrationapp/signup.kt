@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 
 class signup : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,21 +54,23 @@ class signup : AppCompatActivity() {
 
                     //for confirm password
         button.setOnClickListener{
-
-                if(pass.text.toString()==cpass.text.toString()){
-                    cPassFlag=true
-                    cPassError.setText("")
-                        if(cPassFlag==true&&passFlag==true&&emailFlag){
-                            val intent=Intent(this,mobilenumber::class.java)
-                            intent.putExtra("email",email.text.toString())
-                            intent.putExtra("password",pass.text.toString())
+                if(email.text.toString().isNotEmpty() && pass.text.toString().isNotEmpty() && cpass.text.toString().isNotEmpty()) {
+                    if (pass.text.toString() == cpass.text.toString()) {
+                        cPassFlag = true
+                        cPassError.setText("")
+                        if (cPassFlag && passFlag && emailFlag) {
+                            val intent = Intent(this, mobilenumber::class.java)
+                            intent.putExtra("email", email.text.toString())
+                            intent.putExtra("password", pass.text.toString())
                             startActivity(intent)
                             finish()
                         }
-                }
-                else {
-                    cPassFlag = false
-                    cPassError.setText("Both Passwords should match")
+                    } else {
+                        cPassFlag = false
+                        cPassError.setText("Both Passwords should match")
+                    }
+                }else{
+                    Toast.makeText(this, "Fields cannot be Empty", Toast.LENGTH_SHORT).show()
                 }
 
         }

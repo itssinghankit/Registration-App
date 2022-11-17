@@ -28,9 +28,9 @@
             android:id="@+id/signuptext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign up"
+            android:text="@string/sign_up"
             android:textColor="@color/orangebrown"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_margin="30dp"/>
@@ -47,9 +47,9 @@
             android:id="@+id/uppertext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enter your Mobile no"
+            android:text="@string/enter_your_mobile_no"
             android:textColor="@color/white"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:gravity="center"
             android:layout_marginTop="30dp"
             android:layout_below="@id/mobileotp"/>
@@ -58,9 +58,9 @@
             android:id="@+id/lowertext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="we will send you a OTP code"
+            android:text="@string/we_will_send_you_a_otp_code"
             android:textColor="@color/orangebrown"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:gravity="center"
             android:layout_marginTop="10dp"
             android:layout_below="@id/uppertext"/>
@@ -69,12 +69,12 @@
             android:id="@+id/mobilenocontrycode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+91"
+            android:text="@string/_91"
             android:textColor="@color/white"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:layout_below="@id/lowertext"
             android:enabled="false"
-            android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="30dp"/>
 
         <EditText
@@ -83,10 +83,10 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textColor="@color/white"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:layout_toEndOf="@id/mobilenocontrycode"
             android:layout_below="@id/lowertext"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="30dp"
             android:inputType="number"/>
 
@@ -101,7 +101,7 @@
             android:layout_marginBottom="50dp"
             android:backgroundTint="@color/orangebrown"
             android:padding="15dp"
-            android:text="send otp"
+            android:text="@string/send_otp"
             android:textColor="@color/white"
             android:textSize="18sp" />
 

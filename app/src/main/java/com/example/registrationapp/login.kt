@@ -37,7 +37,7 @@ class login : AppCompatActivity() {
                         intent.putExtra("password", pass)
                         startActivity(intent)
                     } else {
-                        Toast.makeText(this, "check internet connection", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show()
                     }
                 }
             } else {

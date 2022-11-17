@@ -28,9 +28,9 @@
             android:id="@+id/signuptext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign up"
+            android:text="@string/sign_up"
             android:textColor="@color/orangebrown"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_margin="30dp"/>
@@ -39,7 +39,7 @@
             android:id="@+id/emailtext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email"
+            android:text="@string/email"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:layout_marginBottom="10dp"
@@ -86,8 +86,7 @@
             android:backgroundTint="@color/white"
             android:drawableLeft="@drawable/ic_baseline_info_24"
             android:drawablePadding="20dp"
-            android:maxLines="1"
-            app:passwordToggleEnabled="true"/>
+            android:maxLines="1" />
 
         <TextView
             android:id="@+id/signupPasswordError"
@@ -102,7 +101,7 @@
             android:id="@+id/confirmPasswordText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Confirm Password"
+            android:text="@string/confirm_password"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:layout_below="@id/signupPassword"
@@ -118,8 +117,7 @@
             android:backgroundTint="@color/white"
             android:drawableLeft="@drawable/ic_baseline_info_24"
             android:drawablePadding="20dp"
-            android:maxLines="1"
-            app:passwordToggleEnabled="true"/>
+            android:maxLines="1" />
 
         <TextView
             android:id="@+id/signupCpasswordError"

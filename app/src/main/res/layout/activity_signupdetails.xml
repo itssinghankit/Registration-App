@@ -29,9 +29,9 @@
         android:id="@+id/Details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Details"
+        android:text="@string/details"
         android:textColor="@color/orangebrown"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:gravity="center"
         android:layout_margin="30dp"/>
@@ -41,7 +41,7 @@
             android:id="@+id/nameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name"
+            android:text="@string/name"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:layout_marginBottom="10dp"
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/nameText"
             android:backgroundTint="@color/white"
-            android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+            android:drawableStart="@drawable/ic_baseline_person_outline_24"
             android:drawablePadding="20dp"
             android:maxLines="1" />
 
@@ -62,7 +62,7 @@
             android:id="@+id/branchText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Branch"
+            android:text="@string/branch"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:layout_marginBottom="10dp"
@@ -81,7 +81,7 @@
             android:id="@+id/yearText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Year"
+            android:text="@string/year"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:layout_marginBottom="10dp"
@@ -100,7 +100,7 @@
             android:id="@+id/GenderText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gender"
+            android:text="@string/gender"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:layout_marginBottom="10dp"
@@ -117,7 +117,7 @@
                 android:id="@+id/male"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Male"
+                android:text="@string/male"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:paddingEnd="20dp"/>
@@ -125,7 +125,7 @@
                 android:id="@+id/female"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Female"
+                android:text="@string/female"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:paddingEnd="20dp" />
@@ -133,7 +133,7 @@
                 android:id="@+id/other"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Other"
+                android:text="@string/other"
                 android:textColor="@color/white"
                 android:textSize="20sp"/>
         </RadioGroup>
@@ -149,7 +149,7 @@
             android:layout_marginBottom="50dp"
             android:backgroundTint="@color/orangebrown"
             android:padding="15dp"
-            android:text="done"
+            android:text="@string/done"
             android:textColor="@color/white"
             android:textSize="18sp" />
 
